@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Worship Chords</title>
+  <script src="https://cdn.jsdelivr.net/npm/chordsheetjs@latest"></script>
+</head>
+<body>
+
+<h2>Sample Song</h2>
+
+<button onclick="transpose(1)">+1</button>
+<button onclick="transpose(-1)">-1</button>
+
+<pre id="song">
+[C] Lord I lift Your name on [G] high
+[Am] Lord I love to sing Your [F] praises
+</pre>
+
+<script>
+let currentTranspose = 0;
+
+function transpose(step) {
+  currentTranspose += step;
+  const parser = new ChordSheetJS.ChordProParser();
+  const song = parser.parse(document.getElementById("song").innerText);
+  const formatter = new ChordSheetJS.HtmlDivFormatter();
+  const transposed = song.transpose(currentTranspose);
+  document.getElementById("song").innerHTML = formatter.format(transposed);
+}
+</script>
+
+</body>
+</html>
