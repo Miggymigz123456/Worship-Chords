@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Worship Chords</title>
+  <script src="https://cdn.jsdelivr.net/npm/chordsheetjs@latest"></script>
+</head>
+<body>
+
+<h2>Sample Song</h2>
+
+<button onclick="transpose(1)">+1</button>
+<button onclick="transpose(-1)">-1</button>
+
+<pre id="song">
+<p class="demoTitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+<pre class="k_vI3 KLhHx fGc1h">[Verse 1]
+ 
+     B         E           F#
+Mga labi ko O, Diyos sa'Yo aawit
+ B         E            F#
+Ika'y papurihan sa kalangitan
+     B        E          F#
+Mga labi ko O Diyos sa &lsquo;Yo aawit
+ B        E            F#
+Ika&rsquo;y papurihan sa kalangitan.
+  E           F#          E                   F#
+*Aking kamay itataas Ka, Pangalan Mo&rsquo;y luwalhatiin
+    E           C#m        F#
+&rsquo;Pagkat Ikaw O, Diyos ay dakila.
+ 
+ 
+[Chorus]
+ 
+B/D#    E              F#
+Napakasayang magbigay papuri
+B/D#     E             F#
+Labis na galak nararamdaman
+B/D#      E            F#
+Pupurihin Ka sa bawat tugtugan
+<span class="eSJpP _6Im1s HslD7" data-name="Bb/D">B/D#</span>      <span class="eSJpP _6Im1s HslD7" data-name="Eb">E</span>           <span class="eSJpP _6Im1s HslD7" data-name="F">F#</span>
+Pupurihin Ka sa bawat galaw
+    <span class="eSJpP _6Im1s HslD7" data-name="Eb">E</span>             <span class="eSJpP _6Im1s HslD7" data-name="Cm">C#m</span>            <span class="eSJpP _6Im1s HslD7" data-name="F">F#</span> (Intro: <span class="eSJpP _6Im1s HslD7" data-name="Bb">B</span> - 4x)
+Itataas ang ngalan Mo magpakailanman&hellip;
+ 
+ 
+[Verse 2]
+ 
+    <span class="eSJpP _6Im1s HslD7" data-name="Bb">B</span>                  <span class="eSJpP _6Im1s HslD7" data-name="Eb">E</span>            <span class="eSJpP _6Im1s HslD7" data-name="F">F#</span>
+Sa taglay mong lakas O, Diyos purihin Ka
+      <span class="eSJpP _6Im1s HslD7" data-name="Bb">B</span>       <span class="eSJpP _6Im1s HslD7" data-name="Eb">E</span>                  <span class="eSJpP _6Im1s HslD7" data-name="F">F#</span>
+Isisigaw sa buong mundo labis Mong gawa
+  <span class="eSJpP _6Im1s HslD7" data-name="Eb">E</span>        <span class="eSJpP _6Im1s HslD7" data-name="F">F#</span>           <span class="eSJpP _6Im1s HslD7" data-name="Eb">E</span>               <span class="eSJpP _6Im1s HslD7" data-name="F">F#</span>
+*Puso ko ay tuwang-tuwa, Kasiyahan ay umaapaw
+   <span class="eSJpP _6Im1s HslD7" data-name="Eb">E</span>           <span class="eSJpP _6Im1s HslD7" data-name="Cm">C#m</span>          <span class="eSJpP _6Im1s HslD7" data-name="F">F#</span>
+Katapatan Mo O, Diyos ay dakila.
+(Ulitin ang Koro)
+ 
+ 
+[Lead Guitar]
+ 
+Katapusan: <span class="eSJpP _6Im1s HslD7" data-name="Bb">B</span> - (12x)  <span class="eSJpP _6Im1s HslD7" data-name="Bb">B</span>!</pre>
+<!-- Comments are visible in the HTML source only -->
+</pre>
+
+<script>
+let currentTranspose = 0;
+
+function transpose(step) {
+  currentTranspose += step;
+  const parser = new ChordSheetJS.ChordProParser();
+  const song = parser.parse(document.getElementById("song").innerText);
+  const formatter = new ChordSheetJS.HtmlDivFormatter();
+  const transposed = song.transpose(currentTranspose);
+  document.getElementById("song").innerHTML = formatter.format(transposed);
+}
+</script>
+
+</body>
+</html>
